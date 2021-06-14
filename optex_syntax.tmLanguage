@@ -22,7 +22,7 @@
 			<key>comment</key>
 			<string>Bulit-in macros starting with \ character</string>
 			<key>match</key>
-			<string>maketoc</string>
+			<string>\\[a-z]*</string>
 			<key>name</key>
 			<string>optex.builtin.macro</string>
 		</dict>
