@@ -1,0 +1,159 @@
+\chyph                      % ÄeskÃ© vzory dÄ›lenÃ­ slov
+\fontfam[Schola]            % fontovÃ¡ rodina TeXGyre Schola
+\margins/1 a4 (3,3,3,3)cm   % okraje 3cm ze vÅ¡ech stran pro stranu A4
+\typosize[11/13]            % velikost pÃ­sma 11pt na 13pt Å™Ã¡dkovÃ¡nÃ­
+\activettchar"              % znak " bude ohraniÄovat Å™Ã¡dkovÃ½ verbatim
+\hyperlinks\Blue\Green      % internÃ­ odkazy modrÃ©, webovÃ© odkazy zelenÃ©
+\outlines0                  % klikacÃ­ obsah po stranÄ› PDF prohlÃ­Å¾eÄe
+
+\def\lorem{\lipsumtext[1]}  % lorem ipsum generÃ¡tor
+
+\def\center{\noindent\hfil} % zkratka pro centrovÃ¡nÃ­
+
+
+\tit UkÃ¡zka -- \OpTeX/
+
+\nonum\notoc\sec Obsah
+
+\maketoc
+
+\sec ZÃ¡kladnÃ­ struktura
+
+Dokument se sklÃ¡dÃ¡ z odstavcÅ¯ (ve zdrojovÃ©m textu jsou oddÄ›leny prÃ¡zdnÃ½mi Å™Ã¡dky)
+a dÃ¡le z kapitol, sekcÃ­ a podsekcÃ­. \lorem
+
+\lorem
+
+\secc VÃ½Äty
+
+V textu mÅ¯Å¾eme pouÅ¾Ã­vat vÃ½Äty:
+
+\begitems
+* prvnÃ­
+* druhÃ½
+\enditems
+
+\lorem
+
+NÄ›kdy mohou bÃ½t vÃ½Äty vnoÅ™eny:
+
+\begitems
+* \lorem
+* DruhÃ½.
+  \begitems \style a
+  * PodproblÃ©m,
+  * jeÅ¡tÄ› jeden podproblÃ©m,
+  * poslednÃ­ podproblÃ©m.
+  \enditems
+* TÅ™etÃ­.
+* PoslednÃ­.
+\enditems
+ 
+\lorem
+
+\secc VyznaÄovÃ¡nÃ­
+
+Text mÅ¯Å¾eme zdÅ¯raznit {\it kurzÃ­vou}, nebo {\bf tuÄnÄ›}. \lorem
+
+\secc[poznamky]  PoznÃ¡mky
+
+PoznÃ¡mka pod Äarou\fnote{VypadÃ¡ takto.} je automaticky ÄÃ­slovanÃ¡.
+MÅ¯Å¾e jich bÃ½t vÃ­ce\fnote{DruhÃ¡ poznÃ¡mka.}.
+\lorem\ \lorem
+
+\sec[dalsi] DalÅ¡Ã­ sekce
+
+\lorem
+
+\secc Verbatim text
+
+VloÅ¾Ã­me {\it verbatim text}, tedy text \uv{tak jak je} bez interpretace
+\TeX{}em:
+
+\begtt
+int main (void) {
+  printf ("helo world!\n");
+  return 0;
+}
+\endtt
+KromÄ› toho je moÅ¾nÃ© psÃ¡t "#kusy {kÃ³dÅ¯}" pÅ™Ã­mo v textu odstavce.
+
+\lorem
+
+\secc ObrÃ¡zky
+
+ObrÃ¡zky se do odbornÃ©ho textu obvykle vklÃ¡dajÃ­ vÄetnÄ› popisku.
+
+\midinsert \label[cmelak]
+  \center \picw=7cm \inspic cmelak.jpg
+  \medskip
+  \caption/f Bombus sylvarum.
+\endinsert
+
+\lorem
+
+\secc Odkazy
+
+Na automaticky ÄÃ­slovanÃ© objekty je moÅ¾nÃ© odkazovat. Ve zdrojovÃ©m dokumentu
+je tÅ™eba pouÅ¾Ã­t {\it lejblÃ­k} v mÃ­stÄ› cÃ­le a stejnÃ½ lejblÃ­k v mÃ­stÄ› odkazu.
+Odkazy vypadajÃ­ napÅ™Ã­klad takto: viz sekci~\ref[dalsi] na
+stranÄ›~\pgref[dalsi], dÃ¡le v podsekci~\ref[poznamky] je zmÃ­nka o poznÃ¡mkÃ¡ch
+pod Äarou a rovnice~\ref[rce] na stranÄ›~\pgref[rce] uvÃ¡dÃ­ zajÃ­mavou
+matematickou myÅ¡lenku. KaÅ¾dÃ½ jistÄ› poznal, Å¾e na obrÃ¡zku~\ref[cmelak] se
+nachÃ¡zÃ­ ÄmelÃ¡k.
+
+VnÄ›jÅ¡Ã­ odkazy smÄ›Å™ujÃ­ obvykle na webovÃ© strÃ¡nky, 
+napÅ™.~\url{http://petr.olsak.net/opmac.html}.
+
+\secc Tabulky
+
+Na tabulky se pouÅ¾Ã­vÃ¡ "\hbox" / "\vbox" aritmetika \TeX{}u a 
+pÅ™Ã­kaz "\halign". To ale nenÃ­ nic vhodnÃ©ho pro zaÄÃ¡teÄnÃ­ka. Proto makra
+(OPmac, \LaTeX, Con\TeX{}t) umoÅ¾ÅˆujÃ­ autorÅ¯m textu psÃ¡t tabulky jednoduÅ¡eji. 
+PÅ™Ã­klad tabulky: 
+
+\bigskip
+\center\table{||l|cc||}{\crl \tskip.5ex
+           & \multispan2 \hfil poÄet \qquad\hfil\vrule\kern\vvkern\vrule\strut\cr
+   makro             & Å™Ã¡dkÅ¯ kÃ³du & stran dokumentace \crli \tskip.5ex
+   plain             &    1241 & 100 \cr
+   OPmac             &    1600 &  19 \crli \tskip.5ex
+   \LaTeX{} (jÃ¡dro)  &    8000 & 240 \cr
+   hyperref          &   24773 & 423 \cr
+   color + graphics  &    2469 &  81 \crli \tskip.5ex
+   Ti{\it k}Z        & 1\,634\,882 & 726 \crli \tskip.5ex
+   Con\TeX{}t        & 1\,155\,673 & 547 \crl
+ } 
+\nobreak\medskip
+\caption/t Makra a jejich rÃ¡mcovÃ½ rozsah.
+\bigskip
+
+V tabulce ve zdrojovÃ©m textu je jednak zÃ¡hlavÃ­ s pravidlem, jak majÃ­ bÃ½t
+formÃ¡tovÃ¡na jednotlivÃ¡ pole tabulky, a dÃ¡le data oddÄ›lenÃ¡ od sebe smluvenÃ½mi
+oddÄ›lovaÄi. Na Ãºrovni primitivnÃ­ho pÅ™Ã­kazu "\halign" jsou tÄ›mito oddÄ›lovaÄi
+znaky "&" a "\cr". JednotlivÃ¡ makra mohou autorÅ¯m nabÃ­zet mÃ­rnÃ© modifikace
+tohoto zpÅ¯sobu vyznaÄovÃ¡nÃ­.
+
+\secc Matematika
+
+V Å™Ã¡dku se pÃ­Å¡e matematika mezi dolary: $a^2+b^2=c^2$. Nebo je moÅ¾no sestavit
+samostatnou rovnici obklopenou dvojicÃ­ dolarÅ¯:
+
+\label[rce]
+$$
+  \int x^\alpha {\rm d}x = \cases {
+     x^{\alpha+1} \over \alpha+1 & pro $\alpha\not=-1$ \cr \noalign{\medskip}
+     \ln x                       & pro $\alpha=-1 $
+  }
+  \eqmark
+$$ 
+Vzorce se zapisujÃ­ zhruba tak, jak bychom je anglicky pÅ™eÄetli.
+
+\lorem
+
+$$
+  {\bbchar A} = \pmatrix{ a & b & c \cr d & e & f \cr g & h & i}.
+$$
+ToÅ¥ na Ãºvod vÅ¡e.
+
+\bye

@@ -1,0 +1,17 @@
+{
+	"variables": {
+		// Define variables here
+	},
+	"globals": {
+		"foreground": "",
+		"background": "",
+		"accent": "",
+		"selection": "",
+	},
+	"rules": [
+		{
+			"scope": "optex.comment",
+			"foreground": "#696969",
+		},
+	]
+}
