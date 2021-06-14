@@ -18,6 +18,14 @@
 			<key>name</key>
 			<string>optex.comment</string>
 		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Bulit-in macros starting with \ character</string>
+			<key>match</key>
+			<string>maketoc</string>
+			<key>name</key>
+			<string>optex.builtin.macro</string>
+		</dict>
 	</array>
 	<key>scopeName</key>
 	<string>source.optex</string>

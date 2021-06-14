@@ -1,17 +1,25 @@
 {
 	"variables": {
-		// Define variables here
+		"white": "#ffffff",
+		"black": "#000000",
+		"gray": "#696969",
 	},
 	"globals": {
-		"foreground": "",
-		"background": "",
+		"foreground": "var(white)",
+		"background": "hsl(60, 17%, 11%)",
 		"accent": "",
 		"selection": "",
 	},
 	"rules": [
 		{
+			"name": "OpTeX comment",
 			"scope": "optex.comment",
-			"foreground": "#696969",
+			"foreground": "var(gray)",
 		},
+		{
+			"name": "OpTeX comment",
+			"scope": "optex.builtin.macro",
+			"foreground": "#7FFF00",
+		}
 	]
 }
