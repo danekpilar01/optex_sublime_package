@@ -40,6 +40,11 @@
 			"name": "Parentheses",
 			"scope": "optex.parenthesis",
 			"foreground": "var(blue)",	
+		},
+		{
+			"name": "Braces",
+			"scope": "optex.brace",
+			"foreground": "var(blue)",	
 		}
 	]
 }
