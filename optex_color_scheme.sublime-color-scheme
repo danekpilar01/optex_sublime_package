@@ -3,12 +3,14 @@
 		"white": "#ffffff",
 		"black": "#000000",
 		"gray": "#696969",
+		"pinkish": "#ff3377"
 	},
 	"globals": {
 		"foreground": "var(white)",
 		"background": "hsl(60, 17%, 11%)",
+		"caret": "var(white)",
 		"accent": "",
-		"selection": "",
+		"selection": ""
 	},
 	"rules": [
 		{
@@ -17,9 +19,9 @@
 			"foreground": "var(gray)",
 		},
 		{
-			"name": "OpTeX comment",
-			"scope": "optex.builtin.macro",
-			"foreground": "#7FFF00",
+			"name": "TeX primitives",
+			"scope": "optex.primitive.body",
+			"foreground": "var(pinkish)",
 		}
 	]
 }
