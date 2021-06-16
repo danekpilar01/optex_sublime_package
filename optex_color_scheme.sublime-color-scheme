@@ -3,7 +3,10 @@
 		"white": "#ffffff",
 		"black": "#000000",
 		"gray": "#696969",
-		"pinkish": "#ff3377"
+		"pinkish": "#ff3377",
+		"green": "#7ffc03",
+		"blue": "#00ffe1",
+		"red": "#ff0000"
 	},
 	"globals": {
 		"foreground": "var(white)",
@@ -20,8 +23,23 @@
 		},
 		{
 			"name": "TeX primitives",
-			"scope": "optex.primitive.body",
+			"scope": "optex.primitive",
 			"foreground": "var(pinkish)",
+		},
+		{
+			"name": "OpTeX macros",
+			"scope": "optex.macro",
+			"foreground": "var(green)",
+		},
+		{
+			"name": "Brackets",
+			"scope": "optex.bracket",
+			"foreground": "var(blue)",
+		},
+		{
+			"name": "Parentheses",
+			"scope": "optex.parenthesis",
+			"foreground": "var(blue)",	
 		}
 	]
 }
