@@ -18,7 +18,7 @@
 	"rules": [
 		{
 			"name": "OpTeX comment",
-			"scope": "optex.comment",
+			"scope": "comment.optex",
 			"foreground": "var(gray)",
 		},
 		{
