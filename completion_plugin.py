@@ -4,6 +4,8 @@ import sublime_plugin
 
 class CompletionListener(sublime_plugin.EventListener):
 
+
+
 	"""
 	As the eventListener is initialized, we need to load the TeX primitives and OpTeX macros
 	and save them as member variables
@@ -22,17 +24,18 @@ class CompletionListener(sublime_plugin.EventListener):
 			"""
 
 			primitives_find_result = sublime.find_resources("tex_primitives.txt")[0]
-			self.primitives = sublime.load_resource(primitives_find_result).split('\n')
+			self.primitives = set(sublime.load_resource(primitives_find_result).split('\n'))
 
 
 			optex_macros_find_result = sublime.find_resources("optex_macros.txt")[0]
-			self.optex_macros = sublime.load_resource(optex_macros_find_result).split('\n')
+			self.optex_macros = set(sublime.load_resource(optex_macros_find_result).split('\n'))
+
 
 		except:
 			sublime.message_dialog("Error while reading the TeX primitives and OpTeX macros.")
 
 
-
+		self.user_macros = set()
 
 	#is triggered everytime a completion can be shown to user
 	def on_query_completions(self, view, prefix, locations):
@@ -68,6 +71,25 @@ class CompletionListener(sublime_plugin.EventListener):
 			if val.lower().startswith(prefix):
 				output.append([val+" - OpTeX macro",added_prefix+val])
 
+		#look in user-defined macros
+		for val in self.user_macros:
+			if val.lower().startswith(prefix):
+				output.append([val+" - user-defined macro",added_prefix+val])
+
+
 		#return output
 		#turns off the autocompletion based on what user already typed
 		return sublime.CompletionList(output,sublime.INHIBIT_WORD_COMPLETIONS)
+
+
+
+	def on_modified(self, view):
+
+		result = view.find_by_selector("variable.function.user.optex")
+
+		for res in result:
+			res = view.substr(res)[1:]
+			if res not in self.user_macros:
+				self.user_macros.add(res)
+
+		
