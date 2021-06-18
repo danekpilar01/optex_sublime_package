@@ -85,11 +85,9 @@ class CompletionListener(sublime_plugin.EventListener):
 
 	def on_modified(self, view):
 
-		result = view.find_by_selector("variable.function.user.optex")
+		result = view.find_by_selector("entity.name.user_macro.optex")
 
 		for res in result:
 			res = view.substr(res)[1:]
 			if res not in self.user_macros:
 				self.user_macros.add(res)
-
-		
