@@ -6,9 +6,11 @@ class CompletionListener(sublime_plugin.EventListener):
 
 	"""
 	As the eventListener is initialized, we need to load the TeX primitives and OpTeX macros
-	and save them as member vaiables
+	and save them as member variables
 	"""
 	def on_init(self,views):
+
+
 
 		try:
 			"""
@@ -36,8 +38,31 @@ class CompletionListener(sublime_plugin.EventListener):
 	def on_query_completions(self, view, prefix, locations):
 		
 		#first we have to check the context
-		#this completion listener should react only on optex srouce files
-		if not view.match_selector(locations[0], "source.optex"):
+		#this completion listener should react only to optex source files
+		if not view.match_selector(locations[0], "source.optex") or len(prefix) == 0:
 			return []
 
-		return [["nevim", "ajsldfjsaldfja;sdfj;"]]
+		#ignore case when suggesting completions
+		prefix = prefix.lower()
+
+
+
+		if prefix[0] == '\\':
+			prefix = prefix[1:]
+
+		output = list()
+
+
+		#look in TeX primitives
+		for val in self.primitives:
+			if val.lower().startswith(prefix):
+				output.append('\\'+val)
+
+		#look in OpTeX macros
+		for val in self.optex_macros:
+			if val.lower().startswith(prefix):
+				output.append('\\'+val)
+
+		#return output
+		#turns off the autocompletion based on what user already typed
+		return sublime.CompletionList(output,sublime.INHIBIT_WORD_COMPLETIONS)

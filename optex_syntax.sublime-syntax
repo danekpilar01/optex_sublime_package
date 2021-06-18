@@ -50,5 +50,3 @@ contexts:
     - meta_content_scope: variable.parameter #set the scope for the text inside brackets, but doesn't inlclude the brackets
     - match: '\]'
       pop: true
-
-  #math:
