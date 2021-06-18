@@ -10,7 +10,7 @@ class CompletionListener(sublime_plugin.EventListener):
 	"""
 	def on_init(self,views):
 
-
+		
 
 		try:
 			"""
@@ -45,23 +45,28 @@ class CompletionListener(sublime_plugin.EventListener):
 		#ignore case when suggesting completions
 		prefix = prefix.lower()
 
-
-
-		if prefix[0] == '\\':
-			prefix = prefix[1:]
-
 		output = list()
+		
 
+		#check if a blackslash is before prefix
+
+		added_prefix = "\\"
+
+		pt = locations[0]-2
+
+		if pt >= 0 and view.substr(pt) == '\\':
+			added_prefix = ""
+		
 
 		#look in TeX primitives
 		for val in self.primitives:
 			if val.lower().startswith(prefix):
-				output.append('\\'+val)
+				output.append([val+" - TeX primitive",added_prefix+val])
 
 		#look in OpTeX macros
 		for val in self.optex_macros:
 			if val.lower().startswith(prefix):
-				output.append('\\'+val)
+				output.append([val+" - OpTeX macro",added_prefix+val])
 
 		#return output
 		#turns off the autocompletion based on what user already typed
