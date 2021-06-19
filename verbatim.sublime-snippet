@@ -1,0 +1,6 @@
+<snippet>
+    <scope>source.optex</scope>
+    <tabTrigger>\begtt</tabTrigger>
+    <content><![CDATA[\begtt${1:math symbols}\endtt]]></content>
+    <description>verbatim text</description>
+</snippet>

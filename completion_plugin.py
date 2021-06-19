@@ -51,6 +51,10 @@ class CompletionListener(sublime_plugin.EventListener):
 		if not view.match_selector(locations[0], "source.optex") or len(prefix) == 0:
 			return []
 
+
+		if view.match_selector(locations[0],"text.verbatim"):
+			return sublime.CompletionList([["endtt"+" - OpTeX macro","\\endtt"]],sublime.INHIBIT_WORD_COMPLETIONS)
+
 		#ignore case when suggesting completions
 		prefix = prefix.lower()
 

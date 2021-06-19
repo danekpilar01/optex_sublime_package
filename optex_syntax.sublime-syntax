@@ -11,6 +11,7 @@ contexts:
     - include: comments
 
   main:
+    - include: verbatim_begin
     - include: macros_definition
     - include: primitives
     - include: optex_macros
@@ -80,6 +81,17 @@ contexts:
   brackets:
     - match: '\['
       push: bracket_parameter
+
+  verbatim_begin:
+    - match: '\\begtt'
+      scope: constant.language.optex.builtin
+      push: verbatim
+
+  verbatim:
+    - meta_content_scope: text.verbatim
+    - match: '\\endtt'
+      scope: constant.language.optex.builtin
+      pop: true
 
   bracket_parameter:
     - meta_content_scope: variable.parameter #set the scope for the text inside brackets, but doesn't inlclude the brackets
