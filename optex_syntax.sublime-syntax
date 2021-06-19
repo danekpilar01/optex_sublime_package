@@ -16,6 +16,7 @@ contexts:
     - include: optex_macros
     - include: brackets
     - include: macros_general
+    - include: double_dollar
 
 
   comments:
@@ -44,6 +45,18 @@ contexts:
     - match: '\\[[:alpha:]]+'
       scope: entity.name.general_macro.optex
 
+  double_dollar:
+    - match: '\$\$'
+      scope: storage
+      push: block_math
+
+  block_math:
+    - meta_content_scope: text
+    - match: '\\mathmacro'
+      scope: constant.language.optex.builtin
+    - match: '\$\$'
+      scope: storage
+      pop: true
 
   brackets:
     - match: '\['
