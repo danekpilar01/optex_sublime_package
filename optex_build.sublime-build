@@ -1,0 +1,18 @@
+{
+	"selector": "source.optex",
+
+	"file_patterns": ["*.tex"],
+	
+	"windows": {
+		"cmd": ["optex","$file"],
+	},
+	
+	"linux": {
+		"cmd": ["optex", "$file"],
+	},
+	
+	//not tested, no Mac computer access
+	"osx": {
+		"cmd": ["optex", "$file"],
+	},
+}
