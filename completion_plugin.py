@@ -31,6 +31,10 @@ class CompletionListener(sublime_plugin.EventListener):
 			self.optex_macros = set(sublime.load_resource(optex_macros_find_result).split('\n'))
 
 
+			math_control_find_result = sublime.find_resources("math_control_sequences.txt")[0]
+			self.math_control = set(sublime.load_resource(math_control_find_result).split('\n'))
+
+
 		except:
 			sublime.message_dialog("Error while reading the TeX primitives and OpTeX macros.")
 
@@ -42,6 +46,8 @@ class CompletionListener(sublime_plugin.EventListener):
 		
 		#first we have to check the context
 		#this completion listener should react only to optex source files
+
+
 		if not view.match_selector(locations[0], "source.optex") or len(prefix) == 0:
 			return []
 
@@ -51,8 +57,9 @@ class CompletionListener(sublime_plugin.EventListener):
 		output = list()
 		
 
-		#check if a blackslash is before prefix
 
+
+		#check if a blackslash is before prefix
 		added_prefix = "\\"
 
 		pt = locations[0]-2
@@ -75,6 +82,13 @@ class CompletionListener(sublime_plugin.EventListener):
 		for val in self.user_macros:
 			if val.lower().startswith(prefix):
 				output.append([val+" - user-defined macro",added_prefix+val])
+
+		#if in math context, look in math control sequences
+		if(view.match_selector(locations[0], "text.math") or view.match_selector(locations[0], "storage.math")):
+			for val in self.math_control:
+				if val.lower().startswith(prefix):
+					output.append([val+" - math control sequence",added_prefix+val])
+
 
 
 		#return output

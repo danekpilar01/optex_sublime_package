@@ -1,0 +1,6 @@
+<snippet>
+    <scope>source.optex</scope>
+    <tabTrigger>$</tabTrigger>
+    <content><![CDATA[\$${1:math symbols}\$]]></content>
+    <description>inline math dollars</description>
+</snippet>
