@@ -34,7 +34,6 @@ class CompletionListener(sublime_plugin.EventListener):
 			math_control_find_result = sublime.find_resources("math_control_sequences.txt")[0]
 			self.math_control = set(sublime.load_resource(math_control_find_result).split('\n'))
 
-
 		except:
 			sublime.message_dialog("Error while reading the TeX primitives and OpTeX macros.")
 
