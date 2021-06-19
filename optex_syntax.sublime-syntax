@@ -5,6 +5,8 @@ name: OpTeX
 file_extensions: [tex]
 scope: source.optex
 
+first_line_match: "%OpTeX document"
+
 contexts:
   
   prototype:
