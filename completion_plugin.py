@@ -93,7 +93,6 @@ class CompletionListener(sublime_plugin.EventListener):
 					output.append([val+" - math control sequence",added_prefix+val])
 
 
-
 		#return output
 		#turns off the autocompletion based on what user already typed
 		return sublime.CompletionList(output,sublime.INHIBIT_WORD_COMPLETIONS)

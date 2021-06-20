@@ -1,0 +1,55 @@
+\fontfam[Termes]
+
+\typosize[11/13]
+\margins/1 a4 (1,1,1,1)in
+\enlang
+\nopagenumbers
+
+\hyperlinks \Blue \Blue
+
+
+\def\subl{Sublime Text}
+
+
+\tit Sublime Text \OpTeX/ package
+
+\hfil Daniel Pilař, \the\year \hfil
+
+
+\nonum\sec Installation
+
+To use this package, you need to have \subl\ installed, preferably the newest version
+({\it version 4, older version were not tested and might cause problems}). If you don't have any \subl\ versions installed yet,
+you can follow instructions on \subl\ \ulink[https://www.sublimetext.com]{official site}.  \par
+
+Although there are several ways to publish packages using various packaging tools, the easiest way to use this package is to
+move the package folder to {\tt Packages} directory. The path could be different on each platform, so to find the {\tt Packages} directory,
+hit {\tt Preferences} in the top panel in \subl\ and select {\tt Settings}. \subl\ opens two settings files which are stored in {\tt Packages}
+directory so you can see the path in the top panel.
+
+\nonum\sec Features
+
+\nonum\secc Syntax highlighting
+
+The package provides a very simple syntax recognition using {\tt .sublime-syntax} files to highlight \TeX\ primitive commands, \OpTeX\ and
+other macros. It also supports \OpTeX-math control sequences inside inline and block math sections. Comments and parameters inside square
+brackets are also distiguishble from other text.
+
+\nonum\secc Completion
+
+Basic completions \TeX/ primitives and \OpTeX/ macros are also supported by plugin, which uses the \subl\ API written in Python. It also suggests
+user-defined macros.
+
+\nonum\secc Snippets
+
+Snippets are generally used as smarter completions. This package supports the most simple snippets for inserting dolars and double dolars
+surrounding the inline and block math sections and block verbatim pairs. The snippets can be triggered from the completion suggestion list
+, when you type enough text to match particular snippet pattern and press {\tt Tab} or from the command palette. Snippets are defined in
+{\tt .sublime-snippet} files.
+
+\nonum\secc Simple build system
+
+Sublime Text can use {\tt .sublime-build} files to provide simple build systems for your projects. This particular build system runs 
+the optex command with the name of the file that is being edited. To trigger the build process, press {\tt Ctrl+B} or choose {\tt Tools->Build} in
+the top panel.
+
