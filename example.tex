@@ -1,47 +1,78 @@
-%% This is part of the OpTeX project, see http://petr.olsak.net/optex
+\fontfam[Schola]
 
-\letter         % \letter OpTeX style activated
-\fontfam[bonum]
+%nastaveni velikosti fontu na 11 a radkovani na 13
+\typosize[11/13.5]
 
-
-
+%nastaveni 1-page design, a4 velikost papiru a okraje 2cm na vsech stranach
+\margins/1 a4 (2,2,2,2)cm
+%ceske zalamovaci vzory
 \cslang
+\parindent 1.22cm
+
+\nopagenumbers
+
+\hyperlinks \Blue \Blue
+
+\tit {\bf Vytvořte tuto stránku {\TeX}em}
+
+Vaším úkolem je vytvořit zdrojový text pro \TeX, po jehož zpracování získáte pokud možno co nejvěrněji tento PDF výstup. Není nutná absolutní věrnost, například odstavce se mohou zalomit jinak. Můžete použít jakýkoli balíček maker nad {\TeX}em, tj. \LaTeX, Context, Plain{\TeX}, {\OpTeX}, {\tt luacsplain} či cokoli jiného. Textový obsah tohoto PDF můžete \uv{nabrat myší} a převést jej do textové podoby, nemusíte to tedy přepisovat znovu. {\it Nám jde hlavně o formu}.
+
+Přidám několik nápověd. Okraje jsou nastaveny 2 cm z každé strany pro papír A4. Velikost písma/řádkování je 11/13.5 bodů, odsazení odstavců je nastaveno na 35 bodů. Informaci o rodině použitých fontů v PDF souboru zjistíte například pomocí:
+\medskip %mezera mezi radky
+{\tt pdffonts ukol.pdf}
+\medskip
 
 
-\address
-  Vážený pan
-  Mgr. Bořek Byrokrat
-  ředitel Ústavu pro další možnosti
-  Úřední 789
-  123 45 Praha 1
+Sestavte tabulku o počtech studentů FIT v roce 2019 ve studijních programech:
+\bigskip
+\hbox to\hsize{
+  
+  \table{l7{c}}{\crll
+    & \mspan2[c]{Bakalářský} & \mspan2[c]{Magisterský} & \mspan2[c]{Doktorský} & {\bf celkem} \cr
+    & P* & K & P & K & P & K & \crl
+    Informatika & 1683 & 129 & 412 & 0 & 28 & 24 &{\bf 2276} \cr    
+    {\it Z toho počet žen} & 208 & 18 & 42 & 0 & 2 & 3 & 273 \cr
+    {\it Z toho počet cizinců} & 387 & 21 & 82 & 0 & 1 & 2 & 493 \crll
+        }
+}
+\medskip
+\hbox to\hsize{\hfil*Poznámka: P – prezenční forma, K – kombinovaná forma.\hfil}
+
+\bigskip
+\hbox to\hsize{
+  \hsize = 5.2cm
+  \vtop {
+      \noindent
+      Zkuste vytvořit tři sloupce, které jsou vertikálně umístěny tak, že mají společně zarovnaný první řádek.
+  }
+  \hfil
+  \vtop{
+      \noindent
+      Všechny tři sloupce mají stejnou šířku 5,2cm. {\TeX} musí začít dělit slova daleko častěji. Je dobré si zkontrolovat, zda máte zapnuty české vzory dělení slov.
+  }
+  \hfil
+  \vtop{
+    \noindent
+    Dám malou nápovědu. K vytvoření takových tří sloupců stačí dát vedle sebe (to znamená do společného \char92 hbox) třikrát  \char92 vtop.
+  }
+}
+\bigskip
+Napište matematický vzorec:
+
+%$$ oznacuje zacatek a konec matematickych vyrazu na samostatnem radku
+$$ 
+ \int x^2  \cos  \alpha x \ dx = {2x \over {\alpha}^2} \cos \alpha x + \left({{{x^2}\over{\alpha}}-{{2}\over {\alpha^3}}}\right) \sin \alpha x, \quad \forall \alpha \in \BbbR \smallsetminus \{0\}.
+$$
+
+\noindent
+\hangindent=1.2cm\hangafter=-3 \llap{\vbox to0pt{\kern-7pt\hbox{\typoscale[3800/0]\bf\Blue N}\vss}}akonec přidám trochu zajímavější úkol. Pokud jej nebudete mít, budu to tolerovat. Vytvoříte odstavec začínající velkým písmenem jako v této ukázce. Úloha sestává ze dvou problémů: vytvořit obdélníkové prázdné místo v bloku odstavce a vložit do něj zvětšené písmeno. Napovím, že první problém se řeší vhodným nastavením primitivních registrů {\tt \char92hangindent} a {\tt \char92hangafter} a druhý problém vyžaduje vložit {\tt \char92vbox} do takto vytvořeného místa, který obsahuje zvětšené písmeno. Například dáte
+\begtt
+  \llap{\vbox to0pt{\kern<něco>\hbox{<větší písmeno>}\vss}}
+\endtt
 
 
-\address
+\noindent na začátek odstavce. Stačí, když to vyřešíte jen pro toto jediné písmeno N. Obecné řešení pro {\LaTeX} nabízí balíček {\tt lettrine} a pro {Plain\TeX} najdete marka například na stackexchage v odpovědi\fnote{\url{https://tex.stackexchange.com/questions/186701/}} od uživatele wipet.
 
-\subject Žádost o možnost další možnosti
-
-Vážený pane řediteli,
-
-na základě Vašeho dopisu č.j.~123456/78-dat a elektronické výzvy si dovoluji 
-Vás požádat o prozkoumání mé možnosti další možnosti. 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-commodo consequat. 
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-esse cillum dolore eu fugiat nulla pariatur. 
-
-S úctou
-
-\hfill \address
-  {\it Petr Olšák}
-  specialista na \TeX/
-  Ulice 12345
-  Praha 13
-
+Nezoufejte, pokud na vše nepřijdete hned napoprvé. S odevzdáním úkolu máte čas do 5.~týdne semestru a do té doby se o {\TeX}u třeba ještě něco dozvíte z přednášek a cvičení.
 
 \bye

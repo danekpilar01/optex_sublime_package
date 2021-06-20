@@ -1,2 +1,4 @@
 .idea
 optex_syntax.YAML-tmLanguage
+*.log
+*.pdf
