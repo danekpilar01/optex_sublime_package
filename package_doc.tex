@@ -13,13 +13,15 @@
 
 \tit Sublime Text \OpTeX/ package
 
-\hfil Daniel Pilař, \the\year \hfil
+\hfil Daniel Pilař \hfil\par
+\medskip
+\hfil \the\year \hfil
 
 
 \nonum\sec Installation
 
 To use this package, you need to have \subl\ installed, preferably the newest version
-({\it version 4, older version were not tested and might cause problems}). If you don't have any \subl\ versions installed yet,
+({\it version 4, older versions were not tested and might cause problems}). If you don't have any \subl\ versions installed yet,
 you can follow instructions on \subl\ \ulink[https://www.sublimetext.com]{official site}.  \par
 
 Although there are several ways to publish packages using various packaging tools, the easiest way to use this package is to
@@ -33,7 +35,8 @@ directory so you can see the path in the top panel.
 
 The package provides a very simple syntax recognition using {\tt .sublime-syntax} files to highlight \TeX\ primitive commands, \OpTeX\ and
 other macros. It also supports \OpTeX-math control sequences inside inline and block math sections. Comments and parameters inside square
-brackets are also distiguishble from other text.
+brackets are also distiguishble from other text. If the OpTeX syntax is not selected automatically, go to {\tt View->Syntax} in the top panel
+and choose OpTeX.
 
 \nonum\secc Completion
 
@@ -43,8 +46,8 @@ user-defined macros.
 \nonum\secc Snippets
 
 Snippets are generally used as smarter completions. This package supports the most simple snippets for inserting dolars and double dolars
-surrounding the inline and block math sections and block verbatim pairs. The snippets can be triggered from the completion suggestion list
-, when you type enough text to match particular snippet pattern and press {\tt Tab} or from the command palette. Snippets are defined in
+surrounding the inline and block math sections and block verbatim macro pairs. The snippets can be triggered from the completion suggestion list
+, from the command palette or when you type enough text to match particular snippet pattern and press {\tt Tab}. Snippets are defined in
 {\tt .sublime-snippet} files.
 
 \nonum\secc Simple build system
@@ -53,3 +56,16 @@ Sublime Text can use {\tt .sublime-build} files to provide simple build systems 
 the optex command with the name of the file that is being edited. To trigger the build process, press {\tt Ctrl+B} or choose {\tt Tools->Build} in
 the top panel.
 
+\nonum\sec Used resources
+
+\begitems
+*\url{https://www.sublimetext.com/docs/api_reference.html}
+*\url{https://www.sublimetext.com/docs/index.html}
+*\url{https://raw.githubusercontent.com/kkos/oniguruma/5.9.6/doc/RE}
+*\url{https://www.youtube.com/watch?v=Iqw32MO_A7E\&list=PLGfKZJVuHW91zln4ADyZA3sxGEmq32Wse}
+*\url{petr.olsak.net/ftp/olsak/optex/optex-doc.pdf}
+*\url{http://petr.olsak.net/ftp/olsak/optex/optex-math.pdf}
+*\url{https://www.tug.org/utilities/plain/cseq.html}
+\enditems
+
+\bye
